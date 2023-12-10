@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      #message-board {
+        width: 90%;
+        max-width: 100%;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      .message {
+        border-radius: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+        position: relative;
+      }
+
+      .btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        border-radius: 5px;
+        border: 2px solid black;
+        background-color: white;
+        color: black;
+        padding: 0.25rem 1rem;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .danger {
+        border-color: #f44336;
+        color: red;
+      }
+
+      .danger:hover {
+        background: #f44336;
+        color: white;
+      }
+      #add-message-btn {
+        display: block;
+        margin: 10px 0;
+        padding: 8px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      .message-info {
+        font-size: 14px;
+        color: #666;
+      }
+
+      textarea {
+        border-radius: 10px;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      #message-input {
+        resize: none;
+        width: 100%;
+        max-width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+    </style>
+    <title>留言板</title>
+  </head>
+  <body>
+    <div id="message-board">
+      <textarea
+        id="message-input"
+        placeholder="在这里输入留言内容..."
+        rows="10"
+        cols="10"
+      ></textarea>
+      <button id="add-message-btn">添加留言</button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const messageBoard = document.getElementById("message-board");
+        const addMessageBtn = document.getElementById("add-message-btn");
+        const messageInput = document.getElementById("message-input");
+
+        let messageId = 1;
+
+        addMessageBtn.addEventListener("click", function () {
+          const messageContent = messageInput.value.trim();
+          if (messageContent === "") {
+            alert("请输入留言内容！");
+            return;
+          }
+
+          const messageDiv = document.createElement("div");
+          messageDiv.classList.add("message");
+
+          const now = new Date();
+          const formattedTime = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+
+          messageDiv.innerHTML = `
+        <span class="message-info">昵称: 用户${messageId} | 时间: ${formattedTime}</span>
+        <p>${messageContent}</p>
+        <button class="btn danger">删除</button>
+      `;
+          const firstMessage = messageBoard.firstChild;
+          messageBoard.insertBefore(messageDiv, firstMessage);
+
+          const deleteBtn = messageDiv.querySelector(".btn");
+          deleteBtn.addEventListener("click", function () {
+            messageBoard.removeChild(messageDiv);
+          });
+          // 清空输入框
+          messageInput.value = "";
+          messageId++;
+        });
+      });
+    </script>
+  </body>
+</html>
