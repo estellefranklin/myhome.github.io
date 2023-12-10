@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#placeholder").load(
-    "../intruduction.html",
+    "./intruduction.html",
     function (response, status, xhr) {
       if (status == "error") {
         console.error("Error:", xhr.status, xhr.statusText);
