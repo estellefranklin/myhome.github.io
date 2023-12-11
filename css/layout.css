@@ -1,3 +1,4 @@
+@import url(./globa.css);
 .page-wrapper {
   display: grid;
   grid-template-columns: 200px auto;
@@ -9,9 +10,10 @@
     "footer footer";
 }
 .page-wrapper .sticky-header-container {
-  background-color: white;
+  background-color: var(--background-primary);
   grid-area: header;
   position: sticky;
+  z-index: 1000;
   top: 0;
 }
 

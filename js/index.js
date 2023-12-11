@@ -21,6 +21,8 @@ $(".submenu-item").click(function (event) {
     // 隐藏 id 为 'video-play' 的元素
     $("#video-play").attr("class", "hidden");
     $("#placeholder").attr("class","placebottom");
+  }else{
+    $("#placeholder").removeClass("placebottom");
   }
   // 使用 load 方法加载并嵌入 HTML 内容
   $("#placeholder").load(url, function (response, status, xhr) {
