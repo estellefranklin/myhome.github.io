@@ -86,12 +86,18 @@ video::-webkit-media-controls {
   transform: translate(-50%, -50%) scale(1);
 }
 #placeholder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 70%;
   max-width: 100%;
   margin: 0 auto;
-  position: relative;
-  z-index: -1;
   box-shadow: 0 5px 30px rgba(11, 9, 23, 0.6);
   overflow: hidden;
   border-radius: 10px;
+}
+
+.placebottom{
+  position: relative;
+  z-index: -1;
 }

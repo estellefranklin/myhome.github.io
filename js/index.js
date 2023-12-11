@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#placeholder").load(
-    "../intruduction.html",
+    "./intruduction.html",
     function (response, status, xhr) {
       if (status == "error") {
         console.error("Error:", xhr.status, xhr.statusText);
@@ -20,6 +20,7 @@ $(".submenu-item").click(function (event) {
   if (url == "./photography.html") {
     // 隐藏 id 为 'video-play' 的元素
     $("#video-play").attr("class", "hidden");
+    $("#placeholder").attr("class","placebottom");
   }
   // 使用 load 方法加载并嵌入 HTML 内容
   $("#placeholder").load(url, function (response, status, xhr) {

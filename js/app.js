@@ -1,18 +1,18 @@
 // app.js
-new Vue({
-  el: "#video-play",
-  data: {
-    videoOptions: {
-      autoplay: true, // 自动播放
-      loop: true, // 循环播放
-      muted: true, // 静音（可选）
-    },
-  },
-  mounted() {
-    // 当组件挂载后,获取 video 元素并播放
-    this.$refs.video.play();
-  },
-});
+// new Vue({
+//   el: "#video-play",
+//   data: {
+//     videoOptions: {
+//       autoplay: true, // 自动播放
+//       loop: true, // 循环播放
+//       muted: true, // 静音（可选）
+//     },
+//   },
+//   mounted() {
+//     // 当组件挂载后,获取 video 元素并播放
+//     this.$refs.video.play();
+//   },
+// });
 
 new Vue({
   el: '#learn-situation',
